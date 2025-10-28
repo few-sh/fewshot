@@ -22,3 +22,6 @@ Issues = "https://github.com/few-sh/fewshot/issues"
 
 [project.scripts]
 fewshot = "fewshot.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fewshot"]
