@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fewshot"
+version = "0.0.1"
+description = "Fewshot: minimal starter package (name reserved for the Fewshot project)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [{ name = "Ivan Bercovich", email = "ibercovich@gmail.com" }]
+keywords = ["fewshot", "agents", "ai"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/few-sh/fewshot"
+Issues = "https://github.com/few-sh/fewshot/issues"
+
+[project.scripts]
+fewshot = "fewshot.cli:main"

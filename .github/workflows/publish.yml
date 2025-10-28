@@ -1,0 +1,42 @@
+name: Publish to PyPI (Trusted Publishing)
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # REQUIRED for OIDC to PyPI
+
+jobs:
+  build-and-publish:
+    name: Build sdist+wheel and publish
+    runs-on: ubuntu-latest
+    # If you set an environment name on PyPI, use the same here:
+    environment: pypi
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Install uv (fast builder) and build artifacts into dist/
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          uv --version
+
+      - name: Build sdist & wheel
+        run: uv build
+
+      # Upload using Trusted Publishing (no tokens needed)
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # set to true if you want to allow re-running the same version
+          # skip-existing: true
+          packages-dir: dist
