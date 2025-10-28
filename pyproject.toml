@@ -21,7 +21,7 @@ Homepage = "https://github.com/few-sh/fewshot"
 Issues = "https://github.com/few-sh/fewshot/issues"
 
 [project.scripts]
-fewshot = "few_sh.cli:main"
+fewshot = "fewshot.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/few_sh"]
+packages = ["src/fewshot"]
