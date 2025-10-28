@@ -3,7 +3,7 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "fewshot"
+name = "few-sh"
 version = "0.0.1"
 description = "Fewshot: minimal starter package (name reserved for the Fewshot project)."
 readme = "README.md"
